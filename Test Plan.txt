@@ -1,0 +1,79 @@
+Test Plan
+-----------
+Scope of Testing:
+Test the functionality of the login page
+In Scope:
+1. Correct credentials for a successfull login
+2. Incorrect credentials for an unsuccessful login
+3. Empty credentials for an unsuccessful login
+4. Provided username, but empty password for an unsuccessful login
+5. Empty username, but provided password for an unsuccessful login
+6. Selecting Forgot password, and inputting an email format
+7. Selecting Forgot password, and inputting an invalid email format
+8. Selecting "Forgot Username"
+
+Out of Scope:
+Navigation of the home page once successfully logged in
+Navigation of "Forgot username" once selected 
+Remember Me check box
+
+Testing Approach
+------------------
+Functional Testing
+
+Test Cases
+----------
+Feature- Login Functionality of GDIT site
+
+Scenario: Successful login with correct credentials
+	Given: User is on the login page
+	When: The user enters correct email and password
+	AND: The user clicks on the Sign-in button
+	Then: The user should be successfully logged in and redirected to the homepage
+
+Scenario: Unsuccessful login with incorrect credentials
+	Given: User is on the login page
+	When: The user enters an incorrect email and/or password
+	AND: The user clicks the Sign-In button
+	Then: The user should should receive a display error message of "Incorrect email or password"
+
+
+Scenario: Unsuccessful login with empty credentials
+	Given: User is on the login page
+	When: The user does not input an email and password
+	AND: The user clicks the Sign-In button
+	Then: The user should should receive a display error message of "Username and/or Password cannot be empty"
+
+Scenario: Unsuccesful login with partial credentials
+	Given:User is on the login page
+	When: The user inputs correct email but empty password
+	AND: The user clicks the Sign-in button
+	Then: The user should should receive a display error message of "Username and/or Password cannot be empty"
+
+Scenario: Unsuccesful login with partial credentials
+	Given:User is on the login page
+	When: The user inputs correct password but empty email
+	AND: The user clicks the Sign-in button
+	Then: The user should should receive a display error message of "Username and/or Password cannot be empty"
+
+Scenario: Access forgot password link
+	Given:User is on the login page
+	When: The user clicks "Forgot password" link
+	Then: The user is redirected to the recovery page for forgotten password
+
+Scenario:An email is provided in forgot password link
+	Given: User is on the Forgot Password page
+	When: User inputs an email address
+	And: User clicks "Send email"
+	Then: User should receive display message "If your email is on file, you will receive a reset password link"
+
+Scenario:Text that isn't in email format is provided in forgot password link
+	Given: User is on the Forgot Password page
+	When: User inputs non email format text
+	And: User clicks "Send email"
+	Then: User should receive display error message "Please provide a valid email ending in e.g.  @email.com"
+
+Scenario:Selecting "Forgot Username" hyperlink
+	Given: User is on the Forgot Password page
+	When: User Clicks "forgot username?"
+	Then: The user is redirected to the recovery page for forgotten username

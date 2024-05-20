@@ -1,0 +1,86 @@
+PseudoCode
+
+**Assume that the framework/test runner of my choice is given (Pytest & Selenium webdriver)**
+**Assume that test code is referring to Login POM file & PasswordRecovery POM**
+**Assume error message method & successful message exists*
+
+Class TestGDITLogin
+  Method driverSetup:
+	#Set up a service to use Chromedriver and install and Create a webdriver instance for Chrome as 'driver'
+	Navigate driver to the GDIT website from the mockup
+	Maximize browser window
+
+  Method test_successful_login
+	#Initialize the login page object
+	Create variable loginPage to create loginPage object with driver
+	Set loginPage email to "testemail@gdit.com"
+	Set loginPage pwd to "correctPassword"
+	Execute loginPage method to login
+
+	#Verify Page title to confirm a successful login
+	Get the current page title and store in created variable actual_title
+	Assert If actual_title == "GDIT homepage" #pass
+
+  Method test_incorrect_credentials
+	Create variable loginPage to create loginPage object with driver
+	Set loginPage email to "wrongemail@email.com"
+	Set loginPage pwd to "incorrectPassword"
+	Execute loginPage method to login
+
+	#Verify error message for incorrect credentials
+	Assert if "invalid credentials" is in error message #pass
+
+Method test_empty_credentials
+	Create variable loginPage to create loginPage object with driver
+	Set loginPage email to " "
+	Set loginPage pwd to " "
+	Execute loginPage method to login
+
+	#Verify error message for incorrect credentials
+	Assert if "invalid credentials" or "required fields" is in error message #pass
+
+Method test_usernameOnly_credentials
+	Create variable loginPage to create loginPage object with driver
+	Set loginPage email to "testemail@gdit.com"
+	Set loginPage pwd to " "
+	Execute loginPage method to login
+
+	#Verify error message for incorrect credentials
+	Assert if "invalid credentials" or "required fields" is in error message #pass
+
+Method test_passwordOnly_credentials
+	Create variable loginPage to create loginPage object with driver
+	Set loginPage email to " "
+	Set loginPage pwd to "correctpassword"
+	Execute loginPage method to login
+
+	#Verify error message for incorrect credentials
+	Assert if "invalid credentials" or "required fields" is in error message #pass
+
+Method test_forgot_password
+	Create variable loginPage to create loginPage object with driver
+	#User navigates to the forgot password page
+	forgotPasswordPage = login.click_forgot_password()
+	Set forgotPasswordPage email to "testemail@gdit.com"
+	Execute forgotPassword method to send email
+	
+	#verify if message shows that email was sent
+	Assert if "If an email is on file, recovery will be sent" is in message #pass
+	
+Method test_invalid_emailformat:
+	#User is on the ForgotPasswordPage
+	Create variable forgotPasswordPage to create forgotPasswordPage object with driver
+	Set forgotPasswordPage email to "invalid email"
+	Execute forgotPassword method to send email #pass
+
+	#verify an error message is displayed
+	Assert if "Please provide a valid email ending in e.g.@email.com" is in error message #pass
+
+Method test_forgot_username:
+	#User is on the ForgotPasswordPage
+	Create variable forgotPasswordPage to create forgotPasswordPage object with driver
+	#User selects "forgot username?" link
+	forgotUsernamePage = forgotPasswordPage.click_forgot_username()
+	
+	#verify if the user is directed to username recovery page
+	Assert forgotUsernamePage is displayed
