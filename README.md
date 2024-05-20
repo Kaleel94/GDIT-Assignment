@@ -21,7 +21,8 @@ PseudCode.txt provides PseudoCode of my automated tests in correlation with the 
 
 Also included are "backing files" such as the GDITLoginPagePOM.py file and GDITForgotPasswordRecoverPOM.py (rough code in python using Selenium)
 
-Information used to locate the controls needed for the test:
+**Information used to locate the controls needed for the test:**
+
 1a) With the placeholder text in Email and Password you can infer that the HTML elements could have identifiers:
 attributes ID or name attribute 
 ex: id="username"
