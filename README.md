@@ -18,6 +18,7 @@ The files are:
 -GDITForgotPasswordRecoverPOM.py
 
 PseudCode.txt provides PseudoCode of my automated tests in correlation with the test cases I provided in TestPlan.txt
+
 Also included are "backing files" such as the GDITLoginPagePOM.py file and GDITForgotPasswordRecoverPOM.py (rough code in python using Selenium)
 
 Information used to locate the controls needed for the test:
