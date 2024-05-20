@@ -4,12 +4,14 @@ Files addressing the assignment prompt for GDIT
 Read Me
 -----------
 
-1. List the tests you would expect to perform on this page, along with the expected outcome of each test. 
+1. List the tests you would expect to perform on this page, along with the expected outcome of each test.
+   
 The file for this question is TestPlan.txt
 The file provides my list of test cases using Gherkin syntax as well as what is in scope and what is out of scope 
 
 
-2. Create pseudocode for automated tests you would use to exercise this functionality. Assume the test runner/framework of your choice is a given, but create a test file and any backing files you feel would be necessary for these tests. Understanding that you don’t have access to the HTML for these pages, please include information on how you would expect to locate the controls needed for the test, including any possible variations you would expect based on the screenshots.
+3. Create pseudocode for automated tests you would use to exercise this functionality. Assume the test runner/framework of your choice is a given, but create a test file and any backing files you feel would be necessary for these tests. Understanding that you don’t have access to the HTML for these pages, please include information on how you would expect to locate the controls needed for the test, including any possible variations you would expect based on the screenshots.
+   
 The files are:
 -PseudoCode.txt 
 -GDITLoginPagePOM.py 
